@@ -5,7 +5,7 @@
 #include <QtSql>
 #include <QtDebug>
 #include<QFileInfo>
-#include <QDir>
+//#include <QDir>
 
 namespace Ui {
   class login;

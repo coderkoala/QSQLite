@@ -8,9 +8,10 @@ login::login(QWidget *parent) :
   ui->setupUi(this);
 
   QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
-  QString workdir = QDir::currentPath();
-  workdir = workdir + QString("/example.sqlite");
-  db.setDatabaseName(workdir);
+  //QString workdir = QDir::currentPath();
+  //qDebug() <<workdir;
+  //workdir = workdir + QString("/example.sqlite");
+  db.setDatabaseName("./example.sqlite");
 
 if(!db.open()){
   ui->status->setText("Failed!");
@@ -18,16 +19,16 @@ if(!db.open()){
 
  else {
     ui->status->setText("Connected!");
-    QString string = "select * from Ramesh";
+    QString string = "select * from Ramesh;";
     QSqlQuery query(db);
     query.exec(string);
-    qDebug() << " The app is actually running";
     qDebug() << string;
     while (query.next()) {
         QString name = query.value(0).toString();
         QString email = query.value(1).toString();
         qDebug() << name << email;
     }
+    qDebug() << db.lastError();
     }
 }
 
