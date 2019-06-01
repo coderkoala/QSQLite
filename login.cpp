@@ -19,17 +19,24 @@ if(!db.open()){
 
  else {
     ui->status->setText("Connected!");
-    QString string = "select * from Ramesh;";
+    QString string = "select * from Ramesh;", stringnew = "";
     QSqlQuery query(db);
     query.exec(string);
     qDebug() << string;
     while (query.next()) {
-        QString name = query.value(0).toString();
-        QString email = query.value(1).toString();
-        qDebug() << name << email;
+        QString id = query.value(0).toString();
+        QString name = query.value(1).toString();
+        QString lname = query.value(2).toString();
+        QString email = query.value(3).toString();
+        QString phone = query.value(4).toString();
+
+        stringnew = stringnew + id + " " + name + " " + lname + " " + email+ " " + phone + "\n";
+      }
+    ui->status->setText(stringnew);
+    qDebug() << stringnew;
     }
-    qDebug() << db.lastError();
-    }
+
+
 }
 
 
