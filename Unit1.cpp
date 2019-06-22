@@ -1,12 +1,12 @@
 //---------------------------------------------------------------------------
 
-#include <fmx.h>
+#include <vcl.h>
 #pragma hdrstop
 
 #include "Unit1.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
-#pragma resource "*.fmx"
+#pragma resource "*.dfm"
 TForm1 *Form1;
 //---------------------------------------------------------------------------
 __fastcall TForm1::TForm1(TComponent* Owner)
@@ -14,11 +14,16 @@ __fastcall TForm1::TForm1(TComponent* Owner)
 {
 }
 //---------------------------------------------------------------------------
-void __fastcall TForm1::Button1Click(TObject *Sender)
+
+
+
+
+
+
+
+void __fastcall TForm1::RetrieveClick(TObject *Sender)
 {
-	System::UnicodeString name = "Hello World";
-	if(Label1->Text != name)
-	Label1->Text = name;
-	else Label1->Text = "Go away";
+	FDQuery1->Active = true;
 }
 //---------------------------------------------------------------------------
+
